@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <button type="button" class="btn btn-info" (click)="getRecommendations()">
+      Get Recommendations!
+    </button>
+  </div>
+  <div *ngFor = "let game of recommendedGames?.recommendedGames">
+       <div>
+         {{game.name}}
+       </div>
+    {{game.name}}
+  </div>
+</div>

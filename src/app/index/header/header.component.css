@@ -1,0 +1,22 @@
+.jumbotron {
+  /* Orange */
+  color: #ffffff;
+  border-radius: 0px;
+  padding: 80px 20px;
+  margin-bottom: 0px;
+  border-bottom: #222222;
+  border-bottom-style: inset;
+  border-bottom-width: 5px;
+  background: url("../../../assets/blue-grey-pentagonal-background-flat.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+form, input, button{
+  border-radius: 0px;
+}
+
+.container-fluid {
+  padding: 50px 40px;
+}

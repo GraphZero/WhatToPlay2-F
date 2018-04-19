@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+
+body{
+  font-family: "Times New Roman", Times, serif;
+}
+
+/*html {*/
+  /*background: url("assets/teal-pentagonal-background.png") no-repeat center center fixed;*/
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*background-size: cover;*/
+/*}*/
+

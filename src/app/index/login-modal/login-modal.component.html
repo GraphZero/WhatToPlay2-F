@@ -1,0 +1,54 @@
+<!-- Button to Open the Modal -->
+<div id="buttons" class="container-fluid text-center">
+  <div>
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+      <button id="login-button" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+        Login
+      </button>
+      <button id="register-button" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+        Register
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group row">
+          <label for="username" class="col-2 col-form-label">Username</label>
+          <div class="col-10">
+            <input class="form-control" type="text" value="Username" id="username">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input class="form-control" type="password" value="Password" id="password">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer text-center">
+        <a [routerLink]="['/home', currentUser.username]" routerLinkActive="active">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="login-modal-button">Login</button>
+        </a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="close-modal-button">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
