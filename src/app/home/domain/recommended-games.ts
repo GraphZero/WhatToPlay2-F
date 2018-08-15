@@ -3,5 +3,5 @@ import {Game} from './game';
 
 export class RecommendedGames {
   owningUserId: number;
-  recommendedGames: Game[];
+  games: Game[];
 }

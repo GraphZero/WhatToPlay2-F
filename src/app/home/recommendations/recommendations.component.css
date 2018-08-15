@@ -33,3 +33,10 @@ a:active {
 button{
  background-color: darkcyan;
 }
+
+
+form {
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
