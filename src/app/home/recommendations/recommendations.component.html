@@ -1,13 +1,59 @@
-<div>
-  <div>
-    <button type="button" class="btn btn-info" (click)="getRecommendations()">
-      Get Recommendations!
-    </button>
+<div class="container">
+  <div *ngFor="let gameAnim of gamesAnims | slice:0:9; let i = index">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card card-body my-card no-radius" [@flyInOut]="gameAnim.gameOpinion">
+          <h2 class="card-title"> <a [attr.href]="gameAnim.game.url"> {{gameAnim.game.name}} </a></h2>
+          <div *ngIf="gameAnim.game.summary ; else elseBlock"> <p> <em> {{gameAnim.game.summary | slice:0:100}}.. </em></p></div>
+          <ng-template #elseBlock> <p> <em> Sorry, no description is available. </em></p></ng-template>
+          <div class="btn-group " role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary no-radius" (click)="sendOpinion(gameAnim, 'Liked')">Like</button>
+            <button type="button" class="btn btn-secondary no-radius" (click)="sendOpinion(gameAnim, 'Neutral')">Neutral</button>
+            <button type="button" class="btn btn-secondary no-radius" (click)="sendOpinion(gameAnim, 'Disliked')">Dislike</button>
+            <button class="btn btn-secondary  no-radius" type="button" data-toggle="collapse" [attr.data-target]="'#' + 'collapseExample' + i"    aria-expanded="false" [attr.aria-controls]="'#' + 'collapseExample' + i">
+              Details
+            </button>
+          </div>
+          <div class="collapse" id="collapseExample{{i}}">
+            <div class="card card-body">
+              <div *ngIf="gameAnim.game.summary ; else elseBlock"> <p> <em> {{gameAnim.game.summary }}</em></p></div>
+              <ng-template #elseBlock> <p> <em> Sorry, no description is available. </em></p></ng-template>
+              <strong>Genres:</strong>
+              <ul>
+                <li *ngFor="let genre of gameAnim.game.genre">
+                  {{genre.name}}
+                </li>
+              </ul>
+
+              <div>
+                <strong>Created at:</strong> {{gameAnim.game.createdAt}}
+              </div>
+              <div>
+                <strong>Rating:</strong> {{gameAnim.game.aggregatedRating}}
+              </div>
+              <strong>Developers:</strong>
+              <ul>
+                <li *ngFor="let developer of gameAnim.game.developer">
+                  {{developer.name}}
+                </li>
+              </ul>
+              <div>
+                <strong>ESRB:</strong> {{gameAnim.game.esrb?.esrbRating | lowercase}}
+              </div>
+              <div>
+                <strong>Franchise:</strong> {{gameAnim.game.franchise?.name | lowercase}}
+              </div>
+              <div>
+                <strong>Collection:</strong> {{gameAnim.game.collection?.name | lowercase}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div *ngFor = "let game of recommendedGames?.recommendedGames">
-       <div>
-         {{game.name}}
-       </div>
-    {{game.name}}
-  </div>
+  <ng4-loading-spinner [loadingText]="'We are searching our database for games for you...'"> </ng4-loading-spinner>
 </div>
+
+
+

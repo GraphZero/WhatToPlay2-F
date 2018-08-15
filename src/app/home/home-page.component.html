@@ -1,4 +1,12 @@
-<p>
-  home-page works! {{loggedUser.username}}
-</p>
-<wtp-recommendations></wtp-recommendations>
+<div class="panel panel-default" [ngStyle]="{'background-image': getUrl()}">
+<div class="container">
+  <div class="jumbotron" [@anim]="loggedUser?.animState">
+    <h1 class="display-4" >Hello, {{loggedUser?.username}}!</h1>
+    <hr >
+    <p class="lead">Here you can see games we've chosen for you.</p>
+  </div>
+  <wtp-recommendations></wtp-recommendations>
+</div>
+</div>
+
+
